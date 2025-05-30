@@ -11,6 +11,11 @@
   margin-right: 4PX;
 }
 
+.button-logout:hover {
+  background-color: rgba(0, 0, 0, 0.04); /* leve fundo ao passar o mouse */
+  transform: scale(1.05); /* efeito de aumento */
+}
+
 .spacer {
   flex: 1;
 }
@@ -47,6 +52,12 @@
   align-items: center;
   height: max-content;
   gap: 8px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.action-button:hover {
+  background-color: rgba(0, 0, 0, 0.04); /* leve fundo ao passar o mouse */
+  transform: scale(1.05); /* efeito de aumento */
 }
 
 .action-button mat-icon {

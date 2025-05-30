@@ -11,10 +11,12 @@ import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ComponentsModule } from '../components/components.module';
+import { AccountComponent } from './account/account.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, SignUpComponent, HomeComponent],
+  declarations: [LoginComponent, SignUpComponent, HomeComponent, AccountComponent],
   imports: [
   MatCardModule,
   MatInputModule,
@@ -24,7 +26,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   ReactiveFormsModule,
   CommonModule,
   MatToolbarModule,
-  MatIconModule
+  MatIconModule,
+  ComponentsModule
   ],
   providers: [],
   exports: [],

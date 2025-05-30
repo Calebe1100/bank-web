@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [provideHttpClient()],
   exports: [PagesModule],

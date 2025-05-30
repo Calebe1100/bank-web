@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Contas</h2>
+
+  <app-lista-dados
+    [headers]="headers"
+    [fields]="fields"
+    [data]="contas">
+  </app-lista-dados>
+
+
+  <div class="actions">
+    <button mat-stroked-button color="primary" (click)="criarNovaConta()">Criar nova conta</button>
+  </div>
+</div>

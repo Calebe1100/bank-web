@@ -1,5 +1,5 @@
 <mat-toolbar color="primary" class="toolbar">
-  <mat-icon class="logo">currency_exchange</mat-icon> OBANK
+  <mat-icon (onclick)="OnActionPage('home')" class="logo">currency_exchange</mat-icon> OBANK
   <span class="spacer"></span>
   <span class="cliente">Cliente: <strong class="nome">{{name?.toUpperCase()}}</strong></span>
   <button mat-button class="button-logout" (click)="OnLogout()"> <mat-icon>logout</mat-icon> <span>sair</span></button>

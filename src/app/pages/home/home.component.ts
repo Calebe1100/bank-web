@@ -32,7 +32,7 @@ OnActionPage(route: string) {
   }
 
   actions = [
-  { label: 'Contas', icon: 'person_add', route:'' },
+  { label: 'Contas', icon: 'person_add', route:'account' },
   { label: 'Saque', icon: 'attach_money', route:'' },
   { label: 'Depósito', icon: 'account_balance', route:'' },
   { label: 'Extrato', icon: 'receipt', route:'' },
