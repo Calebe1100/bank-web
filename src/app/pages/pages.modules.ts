@@ -21,6 +21,7 @@ import { HomeComponent } from './home/home.component';
   MatFormFieldModule,
   FormsModule,
   ReactiveFormsModule,
+  CommonModule
   ],
   providers: [],
   exports: [],
