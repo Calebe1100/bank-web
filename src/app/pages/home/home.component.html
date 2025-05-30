@@ -1,13 +1,6 @@
-<mat-toolbar color="primary" class="toolbar">
-  <mat-icon (onclick)="OnActionPage('home')" class="logo">currency_exchange</mat-icon> OBANK
-  <span class="spacer"></span>
-  <span class="cliente">Cliente: <strong class="nome">{{name?.toUpperCase()}}</strong></span>
-  <button mat-button class="button-logout" (click)="OnLogout()"> <mat-icon>logout</mat-icon> <span>sair</span></button>
-</mat-toolbar>
-
 <div class="container">
-  <mat-card class="action-card" *ngFor="let action of actions">
-    <button (click)="OnActionPage(action.route)" mat-button class="action-button">
+  <mat-card (click)="OnActionPage(action.route)" class="action-card" *ngFor="let action of actions">
+    <button  mat-button class="action-button">
       <mat-icon >{{ action.icon }}</mat-icon>
       <span>{{ action.label }}</span>
     </button>

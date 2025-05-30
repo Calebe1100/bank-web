@@ -13,6 +13,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogAddComponent } from './dialog-add/dialog-add.component';
 import { TransactionFormComponent } from './transaction-form/transaction-form.component';
 import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { MatOptionModule } from '@angular/material/core';
   MatIconModule,
   MatTableModule,
   MatDialogModule,
-  MatOptionModule
+  MatOptionModule,
+    MatSelectModule,
   ],
   exports: [ListaDadosComponent, DialogAddComponent, TransactionFormComponent],
 })

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +10,25 @@ import { Component } from '@angular/core';
   standalone:false
 })
 export class AppComponent {
-  title = 'bank-web';
+  showHeader: boolean = false;
+  name = '';
+
+  constructor(private router: Router, private readonly authService: AuthService) {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+        this.showHeader = !event.url.includes('/login');
+      });
+
+      this.name = this.authService.getName() ?? "";
+  }
+
+  OnLogout() {
+    // lógica de logout
+    this.router.navigate(['/login']);
+  }
+
+  OnActionPage(route: string) {
+    this.router.navigate([`/${route}`]);
+  }
 }

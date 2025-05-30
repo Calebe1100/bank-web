@@ -15,10 +15,8 @@ import { Router } from '@angular/router';
 export class AccountComponent implements OnInit{
   
   contas: Account[] = [];
-  name: string | null;
 
   constructor(private dialog: MatDialog, private readonly accountService: AccountService, private readonly authService: AuthService, private readonly router: Router) {
-    this.name = this.authService.getName();
   }
 
   OnLogout() {

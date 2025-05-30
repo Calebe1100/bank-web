@@ -33,8 +33,8 @@ OnActionPage(route: string) {
 
   actions = [
   { label: 'Contas', icon: 'person_add', route:'account' },
-  { label: 'Saque', icon: 'attach_money', route:'' },
-  { label: 'Depósito', icon: 'account_balance', route:'' },
+  { label: 'Saque', icon: 'attach_money', route:'withdraw' },
+  { label: 'Depósito', icon: 'account_balance', route:'deposit' },
   { label: 'Extrato', icon: 'receipt', route:'' },
   { label: 'Sair', icon: 'logout', route:'' }
 ];

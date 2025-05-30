@@ -15,6 +15,7 @@ import { ComponentsModule } from '../components/components.module';
 import { AccountComponent } from './account/account.component';
 import { DepositComponent } from './deposit/deposit.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { WithdrawComponent } from './withdraw/withdraw.component';
   CommonModule,
   MatToolbarModule,
   MatIconModule,
-  ComponentsModule
+  ComponentsModule,
+  MatSelectModule 
   ],
   providers: [],
   exports: [],
