@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrl: './home.component.scss',
   standalone: false
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
 
 
@@ -18,18 +18,9 @@ OnActionPage(route: string) {
 
   
   constructor (private readonly authService: AuthService, private readonly router: Router) {
-    this.name = this.authService.getName();
   }
 
-  OnLogout() {
-    this.authService.clearLocalStorage();
-    this.router.navigate(['']);
-  }
-  name: string | null;
 
-  ngOnInit(): void {
-    
-  }
 
   actions = [
   { label: 'Contas', icon: 'person_add', route:'account' },

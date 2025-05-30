@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Account } from '../../models/Account';
 
 @Component({
   selector: 'app-transaction-form',
@@ -10,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class TransactionFormComponent {
 @Input() title: string = '';
   @Input() buttonLabel: string = 'Confirmar';
-  @Input() contas: string[] = [];
+  @Input() contas: Account[] = [];
   @Output() onSubmit = new EventEmitter<{ conta: string, valor: number }>();
 
   form: FormGroup;

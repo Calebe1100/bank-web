@@ -24,8 +24,8 @@ export class AppComponent {
   }
 
   OnLogout() {
-    // lógica de logout
-    this.router.navigate(['/login']);
+    this.authService.clearLocalStorage();
+    this.router.navigate(['']);
   }
 
   OnActionPage(route: string) {
