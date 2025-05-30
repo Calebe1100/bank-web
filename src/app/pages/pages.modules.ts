@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -21,7 +22,9 @@ import { HomeComponent } from './home/home.component';
   MatFormFieldModule,
   FormsModule,
   ReactiveFormsModule,
-  CommonModule
+  CommonModule,
+  MatToolbarModule,
+  MatIconModule
   ],
   providers: [],
   exports: [],

@@ -27,6 +27,7 @@ export class LoginComponent {
       this.authService.login(this.form.controls['username'].value, this.form.controls['password'].value).subscribe((resp) => 
         {
           this.authService.setToken(resp.token); 
+          this.authService.setName(resp.name);
           this.router.navigate(['/home']); 
         })
       
