@@ -25,7 +25,7 @@ export class AppComponent {
 
   OnLogout() {
     this.authService.clearLocalStorage();
-    this.router.navigate(['']);
+    this.router.navigate(['login']);
   }
 
   OnActionPage(route: string) {

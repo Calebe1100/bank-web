@@ -12,7 +12,7 @@ export class TransactionFormComponent {
 @Input() title: string = '';
   @Input() buttonLabel: string = 'Confirmar';
   @Input() contas: Account[] = [];
-  @Output() onSubmit = new EventEmitter<{ conta: string, valor: number }>();
+  @Output() onSubmit = new EventEmitter<{ conta: Account, valor: number }>();
 
   form: FormGroup;
 

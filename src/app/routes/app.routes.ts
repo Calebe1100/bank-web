@@ -8,9 +8,10 @@ import { DepositComponent } from '../pages/deposit/deposit.component';
 import { WithdrawComponent } from '../pages/withdraw/withdraw.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'account', component: AccountComponent },
   { path: 'deposit', component: DepositComponent },
   { path: 'withdraw', component: WithdrawComponent },

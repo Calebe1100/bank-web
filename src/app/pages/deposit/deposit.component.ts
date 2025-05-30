@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../../../services/account/account.service';
 import { AuthService } from '../../../services/auth.service';
 import { Account } from '../../models/Account';
+import { TransactionService } from '../../../services/transactions/transaction.service';
 
 @Component({
   selector: 'app-deposit',
@@ -12,16 +13,15 @@ import { Account } from '../../models/Account';
 export class DepositComponent implements OnInit {
   accounts: Account[] = [];
   
-  constructor(private readonly accountService: AccountService, private readonly authService: AuthService){}
+  constructor(private readonly accountService: AccountService, private readonly authService: AuthService, private readonly transactionService: TransactionService){}
 
   ngOnInit(): void {
     this.accountService.getAccounts(this.authService.getName() ?? "").subscribe(r => this.accounts =  r.map<Account>( r => { return {id: r.id, idClient: r.idClient, number: r.number} } ))
   }
 
 
-  setDeposit({ conta, valor }: { conta: string, valor: number }) {
-    console.log(`Depositar R$ ${valor} na conta ${conta}`);
-    // Chamar serviço de depósito aqui
+  setDeposit({ conta, valor }: { conta: Account, valor: number }) {
+    this.transactionService.registerDeposit(this.authService.getIdClient() ?? "", conta.number, valor).subscribe(()=> {})
   }
 
 }
