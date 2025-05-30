@@ -13,10 +13,12 @@ import { HomeComponent } from './home/home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ComponentsModule } from '../components/components.module';
 import { AccountComponent } from './account/account.component';
+import { DepositComponent } from './deposit/deposit.component';
+import { WithdrawComponent } from './withdraw/withdraw.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, SignUpComponent, HomeComponent, AccountComponent],
+  declarations: [LoginComponent, SignUpComponent, HomeComponent, AccountComponent, DepositComponent, WithdrawComponent],
   imports: [
   MatCardModule,
   MatInputModule,

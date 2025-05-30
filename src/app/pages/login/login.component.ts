@@ -28,6 +28,8 @@ export class LoginComponent {
         {
           this.authService.setToken(resp.token); 
           this.authService.setName(resp.name);
+          this.authService.setIdClient(resp.idClient);
+
           this.router.navigate(['/home']); 
         })
       

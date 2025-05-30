@@ -9,10 +9,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ListaDadosComponent } from './lista-dados/lista-dados.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogAddComponent } from './dialog-add/dialog-add.component';
+import { TransactionFormComponent } from './transaction-form/transaction-form.component';
+import { MatOptionModule } from '@angular/material/core';
 
 
 @NgModule({
-  declarations: [ListaDadosComponent],
+  declarations: [ListaDadosComponent, DialogAddComponent, TransactionFormComponent],
   imports: [
   MatCardModule,
   MatInputModule,
@@ -23,8 +27,10 @@ import { MatTableModule } from '@angular/material/table';
   CommonModule,
   MatToolbarModule,
   MatIconModule,
-  MatTableModule
+  MatTableModule,
+  MatDialogModule,
+  MatOptionModule
   ],
-  exports: [ListaDadosComponent],
+  exports: [ListaDadosComponent, DialogAddComponent, TransactionFormComponent],
 })
 export class ComponentsModule {}

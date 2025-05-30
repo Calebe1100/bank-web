@@ -1,0 +1,21 @@
+<h2>{{ title }}</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <mat-form-field appearance="outline" class="w-full">
+    <mat-label>Conta</mat-label>
+    <mat-select formControlName="conta">
+      <mat-option *ngFor="let conta of contas" [value]="conta">
+        {{ conta }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-full">
+    <mat-label>Valor</mat-label>
+    <input matInput type="number" formControlName="valor">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">
+    {{ buttonLabel }}
+  </button>
+</form>
