@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import {  provideHttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,7 +22,7 @@ import { AppComponent } from './app.component';
     MatMenuModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   exports: [PagesModule],
   bootstrap: [AppComponent]
 })
