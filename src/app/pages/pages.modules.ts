@@ -16,10 +16,12 @@ import { AccountComponent } from './account/account.component';
 import { DepositComponent } from './deposit/deposit.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
 import { MatSelectModule } from '@angular/material/select';
+import { ExtractComponent } from './extract/extract.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
-  declarations: [LoginComponent, SignUpComponent, HomeComponent, AccountComponent, DepositComponent, WithdrawComponent],
+  declarations: [LoginComponent, SignUpComponent, HomeComponent, AccountComponent, DepositComponent, WithdrawComponent, ExtractComponent],
   imports: [
   MatCardModule,
   MatInputModule,
@@ -31,7 +33,8 @@ import { MatSelectModule } from '@angular/material/select';
   MatToolbarModule,
   MatIconModule,
   ComponentsModule,
-  MatSelectModule 
+  MatSelectModule,
+  MatTableModule 
   ],
   providers: [],
   exports: [],

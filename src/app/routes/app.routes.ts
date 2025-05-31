@@ -6,6 +6,7 @@ import { HomeComponent } from '../pages/home/home.component';
 import { AccountComponent } from '../pages/account/account.component';
 import { DepositComponent } from '../pages/deposit/deposit.component';
 import { WithdrawComponent } from '../pages/withdraw/withdraw.component';
+import { ExtractComponent } from '../pages/extract/extract.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'account', component: AccountComponent },
   { path: 'deposit', component: DepositComponent },
   { path: 'withdraw', component: WithdrawComponent },
+  { path: 'extract', component: ExtractComponent },
 ];
 
 @NgModule({
