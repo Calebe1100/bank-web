@@ -5,8 +5,8 @@ import { SignUpComponent } from '../pages/sign-up/sign-up.component';
 import { HomeComponent } from '../pages/home/home.component';
 import { AccountComponent } from '../pages/account/account.component';
 import { DepositComponent } from '../pages/deposit/deposit.component';
-import { WithdrawComponent } from '../pages/withdraw/withdraw.component';
 import { ExtractComponent } from '../pages/extract/extract.component';
+import { WithdrawComponent } from '../pages/withdraw/withdraw.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },

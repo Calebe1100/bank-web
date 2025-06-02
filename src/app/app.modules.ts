@@ -1,4 +1,4 @@
-import {  provideHttpClient } from '@angular/common/http';
+import {  HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PagesModule } from './pages/pages.modules';
 import { AppRoutingModule } from './routes/app.routes';
 import { AppComponent } from './app.component';
+import { JwtInterceptor } from './interceptors/interceptor';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,8 +23,15 @@ import { AppComponent } from './app.component';
     MatButtonModule,
     MatMenuModule,
     AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [provideHttpClient()],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
+  ],
   exports: [PagesModule],
   bootstrap: [AppComponent]
 })

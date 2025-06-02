@@ -15,6 +15,11 @@ export class TransactionService {
     return this.http.post<{}>(url, { value});
   }
 
+    registerWithDraw( idClient: string,idAccount: string, value: number) {
+    const url = `${this.apiUrl}/${idClient}/accounts/${idAccount}/transactions/withdraws`
+    return this.http.post<{}>(url, { value});
+  }
+
   getTransactions(idClient: string,idAccount: string) {
     return this.http.get<Transaction[]>(`${this.apiUrl}/${idClient}/accounts/${idAccount}/transactions`);
   }

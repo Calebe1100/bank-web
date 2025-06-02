@@ -14,10 +14,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ComponentsModule } from '../components/components.module';
 import { AccountComponent } from './account/account.component';
 import { DepositComponent } from './deposit/deposit.component';
-import { WithdrawComponent } from './withdraw/withdraw.component';
+
 import { MatSelectModule } from '@angular/material/select';
 import { ExtractComponent } from './extract/extract.component';
 import { MatTableModule } from '@angular/material/table';
+import { WithdrawComponent } from './withdraw/withdraw.component';
 
 
 @NgModule({
