@@ -8,25 +8,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   standalone: false
 })
 export class DialogAddComponent {
-  form: FormGroup;
-
   constructor(
-    private fb: FormBuilder,
-    private dialogRef: MatDialogRef<DialogAddComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-    this.form = this.fb.group({
-      numeroConta: ['', Validators.required],
-    });
-  }
+      public dialogRef: MatDialogRef<DialogAddComponent>,
+      @Inject(MAT_DIALOG_DATA) public data: { message: string }
+    ) {}
 
-  onCancel(): void {
-    this.dialogRef.close();
-  }
-
-  onCreate(): void {
-    if (this.form.valid) {
-      this.dialogRef.close(this.form.value); // envia os dados ao fechar
+    onConfirm(): void {
+      this.dialogRef.close(true); // Retorna true se confirmar
     }
-  }
+
+    onCancel(): void {
+      this.dialogRef.close(false); // Retorna false se cancelar
+    }
 }

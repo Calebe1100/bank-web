@@ -24,7 +24,7 @@ export class ExtractComponent implements OnInit{
   contas: Account[] = [];
 
     ngOnInit(): void {
-      this.accountService.getAccounts(this.authService.getIdClient() ?? "").subscribe(r => this.contas =  r.map<Account>( r => { return {id: r.id, idClient: r.idClient, number: r.number} } ))
+      this.accountService.getAccounts(this.authService.getIdClient() ?? "").subscribe(r => this.contas =  r.map<Account>( r => { return {id: r.id, idClient: r.idClient, number: r.number, value: r.value }} ))
     }
 
   contaSelecionada: any = null;

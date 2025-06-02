@@ -1,6 +1,6 @@
 <ng-container *ngIf="showHeader">
   <mat-toolbar color="primary" class="toolbar">
-    <mat-icon (click)="OnActionPage('home')" class="logo">currency_exchange</mat-icon> OBANK | O banco que entende você
+    <mat-icon (click)="OnActionPage('home')" class="logo">currency_exchange</mat-icon> OBANK
     <span class="spacer"></span>
     <span class="cliente">Cliente: <strong class="nome">{{ name ? name.toUpperCase() : "Pessoa" }}</strong></span>
     <button mat-button class="button-logout" (click)="OnLogout()">

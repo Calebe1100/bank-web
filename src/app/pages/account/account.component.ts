@@ -30,19 +30,24 @@ export class AccountComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.accountService.getAccounts(this.authService.getName() ?? "").subscribe(r => this.contas =  r.map<Account>( r => { return {id: r.id, idClient: r.idClient, number: r.number} } ))
+    this.accountService.getAccounts(this.authService.getIdClient() ?? "").subscribe(r => this.contas =  r.map<Account>( r => { return {id: r.id, idClient: r.idClient, number: r.number, value: r.value } }))
   }
 
   headers = ['Número da conta', 'Saldo'];
-  fields = ['number', 'saldo'];
+  fields = ['number', 'value'];
 
-  criarNovaConta() {
-    const dialogRef = this.dialog.open(DialogAddComponent);
+  createNewAccount() {
+      const dialogRef = this.dialog.open(DialogAddComponent, {
+          width: '350px',
+          data: {
+            message: 'Tem certeza que deseja excluir esta conta?'
+          }
+        });
 
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
-          this.accountService.registerAccount(result.numeroConta, this.authService.getIdClient() ?? "").subscribe(() => location.reload());
+          this.accountService.registerAccount(this.authService.getIdClient() ?? "").subscribe(() => location.reload());
         }
-      });  
-    }
+      }); 
+  }
 }

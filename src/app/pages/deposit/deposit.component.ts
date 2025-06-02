@@ -16,7 +16,7 @@ export class DepositComponent implements OnInit {
   constructor(private readonly accountService: AccountService, private readonly authService: AuthService, private readonly transactionService: TransactionService){}
 
   ngOnInit(): void {
-    this.accountService.getAccounts(this.authService.getName() ?? "").subscribe(r => this.accounts =  r.map<Account>( r => { return {id: r.id, idClient: r.idClient, number: r.number} } ))
+    this.accountService.getAccounts(this.authService.getName() ?? "").subscribe(r => this.accounts =  r.map<Account>( r => { return {id: r.id, idClient: r.idClient, number: r.number, value: r.value }} ))
   }
 
 

@@ -1,14 +1,8 @@
-<h2 mat-dialog-title>Criar nova conta</h2>
-<mat-dialog-content>
-  <form [formGroup]="form">
-    <mat-form-field appearance="outline" class="w-full">
-      <mat-label>Número da conta</mat-label>
-      <input matInput formControlName="numeroConta" />
-    </mat-form-field>
-  </form>
+<h2 mat-dialog-title>Confirmação</h2>
+<mat-dialog-content class="content">
+  <p>{{ data.message }}</p>
 </mat-dialog-content>
-
-<mat-dialog-actions align="end">
+<mat-dialog-actions class="button-actions">
   <button mat-button (click)="onCancel()">Cancelar</button>
-  <button mat-raised-button color="primary" (click)="onCreate()">Criar</button>
+  <button mat-raised-button color="primary" (click)="onConfirm()">Confirmar</button>
 </mat-dialog-actions>

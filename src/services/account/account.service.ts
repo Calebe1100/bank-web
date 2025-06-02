@@ -10,12 +10,12 @@ export class AccountService {
 
   constructor(private http: HttpClient) {}
 
-  registerAccount(number: string, idClient: string) {
-    const url = `${this.apiUrl}/1/accounts`
-    return this.http.post<{}>(url, { number, idClient});
+  registerAccount(idClient: string) {
+    const url = `${this.apiUrl}/${parseInt(idClient)}/accounts`
+    return this.http.post<{}>(url, {idClient});
   }
 
   getAccounts(idClient: string) {
-    return this.http.get<Account[]>(`${this.apiUrl}/1/accounts`);
+    return this.http.get<Account[]>(`${this.apiUrl}/${idClient}/accounts`);
   }
 }
