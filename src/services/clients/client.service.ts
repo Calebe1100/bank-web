@@ -9,9 +9,10 @@ export class ClientService {
 
   constructor(private http: HttpClient) {}
 
-  registerClient(name: string, document: string, password: string, phone: string ) {
-    return this.http.post<{ token: string }>(this.apiUrl, { name, document, password, phone });
+  registerClient(name: string, document: string, password: string, phone: string) {
+    return this.http.post(this.apiUrl, { name, document, password, phone }, { responseType: 'text' });
   }
+
 
   setToken(token: string) {
     localStorage.setItem('jwt', token);

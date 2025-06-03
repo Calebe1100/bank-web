@@ -21,7 +21,7 @@
 
     <ng-container matColumnDef="tipo">
       <th mat-header-cell *matHeaderCellDef> Tipo </th>
-      <td mat-cell *matCellDef="let item"> {{ item.type == 1 || item.value < 0 ? 'Depósito':'Saque' }} </td>
+      <td mat-cell *matCellDef="let item"> {{ item.type == 1 || item.value < 0 ? 'Saque': 'Depósito' }} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="[ 'valor', 'tipo']"></tr>

@@ -16,12 +16,12 @@ export class DepositComponent implements OnInit {
   constructor(private readonly accountService: AccountService, private readonly authService: AuthService, private readonly transactionService: TransactionService){}
 
   ngOnInit(): void {
-    this.accountService.getAccounts(this.authService.getName() ?? "").subscribe(r => this.accounts =  r.map<Account>( r => { return {id: r.id, idClient: r.idClient, number: r.number, value: r.value }} ))
+    this.accountService.getAccounts(this.authService.getIdClient() ?? "").subscribe(r => this.accounts =  r.map<Account>( r => { return {id: r.id, idClient: r.idClient, number: r.number, value: r.value }} ))
   }
 
 
   setDeposit({ conta, valor }: { conta: Account, valor: number }) {
-    this.transactionService.registerDeposit(this.authService.getIdClient() ?? "", conta.number, valor).subscribe(()=> {})
+    this.transactionService.registerDeposit(this.authService.getIdClient() ?? "", conta.id, valor).subscribe(()=> {})
   }
 
 }

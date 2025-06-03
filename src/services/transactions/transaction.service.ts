@@ -10,14 +10,14 @@ export class TransactionService {
 
   constructor(private http: HttpClient) {}
 
-  registerDeposit( idClient: string,idAccount: string, value: number) {
+  registerDeposit( idClient: string,idAccount: number, value: number) {
     const url = `${this.apiUrl}/${idClient}/accounts/${idAccount}/transactions/deposits`
-    return this.http.post<{}>(url, { value});
+    return this.http.post(url, { value}, { responseType: 'text' });
   }
 
-    registerWithDraw( idClient: string,idAccount: string, value: number) {
+    registerWithDraw( idClient: string,idAccount: number, value: number) {
     const url = `${this.apiUrl}/${idClient}/accounts/${idAccount}/transactions/withdraws`
-    return this.http.post<{}>(url, { value});
+    return this.http.post(url, { value}, { responseType: 'text' });
   }
 
   getTransactions(idClient: string,idAccount: string) {

@@ -17,7 +17,7 @@ export class AppComponent {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {
-        this.showHeader = !event.url.includes('/login');
+        this.showHeader =  !(event.url.includes('/sign-up') || event.url.includes('/login') || event.url == '/');
       });
 
       this.name = this.authService.getName() ?? "";

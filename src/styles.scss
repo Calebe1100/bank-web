@@ -5,3 +5,12 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// Customize the entire app. Change :root to your selector if you want to scope the styles.
+:root {
+  @include mat.snack-bar-overrides((
+    button-color: rgb(255, 255, 255),
+    container-color: rgba(221, 35, 35, 0.473),
+  ));
+}

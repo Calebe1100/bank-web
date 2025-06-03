@@ -5,6 +5,7 @@ import { AccountService } from '../../../services/account/account.service';
 import { AuthService } from '../../../services/auth.service';
 import { Account } from '../../models/Account';
 import { Router } from '@angular/router';
+import { NotificationService } from '../../../services/notification.service';
 
 @Component({
   selector: 'app-account',
@@ -16,7 +17,7 @@ export class AccountComponent implements OnInit{
   
   contas: Account[] = [];
 
-  constructor(private dialog: MatDialog, private readonly accountService: AccountService, private readonly authService: AuthService, private readonly router: Router) {
+  constructor(private dialog: MatDialog, private readonly accountService: AccountService, private readonly authService: AuthService, private readonly router: Router, private notification: NotificationService) {
   }
 
   OnLogout() {
@@ -40,7 +41,7 @@ export class AccountComponent implements OnInit{
       const dialogRef = this.dialog.open(DialogAddComponent, {
           width: '350px',
           data: {
-            message: 'Tem certeza que deseja excluir esta conta?'
+            message: 'Tem certeza que deseja adicionar uma nova conta?'
           }
         });
 

@@ -21,7 +21,7 @@ export class WithdrawComponent implements OnInit {
 
 
   setWithDraw({ conta, valor }: { conta: Account, valor: number }) {
-    this.transactionService.registerWithDraw(this.authService.getIdClient() ?? "", conta.number, valor * -1).subscribe(()=> {})
+    this.transactionService.registerWithDraw(this.authService.getIdClient() ?? "", conta.id, valor * -1).subscribe(()=> {})
   }
 
 }

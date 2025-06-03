@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClientService } from '../../../services/clients/client.service';
 import { AuthService } from '../../../services/auth.service';
+import { NotificationService } from '../../../services/notification.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,23 +13,16 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class SignUpComponent {
 
-  constructor(private readonly router: Router, private readonly clientService: ClientService, private readonly authService: AuthService){}
+  constructor(private readonly router: Router, private readonly clientService: ClientService, private readonly authService: AuthService, private readonly notification: NotificationService){}
   
-  // form: FormGroup = new FormGroup({
-  //   fullName: new FormControl('', [Validators.required, Validators.minLength(3)]),
-  //   document: new FormControl('', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]),
-  //   phone: new FormControl('', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]),
-  //   password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-  //   confirmPassword: new FormControl('', [Validators.required])
-  // });
-
-    form: FormGroup = new FormGroup({
-    fullName: new FormControl(''),
-    document: new FormControl(''),
-    phone: new FormControl(''),
-    password: new FormControl(''),
-    confirmPassword: new FormControl('')
+  form: FormGroup = new FormGroup({
+    fullName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    document: new FormControl('', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]),
+    phone: new FormControl('', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    confirmPassword: new FormControl('', [Validators.required])
   });
+
 
   error: string | null = null;
 
@@ -42,9 +36,10 @@ export class SignUpComponent {
       }
 
       this.clientService.registerClient(this.form.controls['fullName'].value, this.form.controls['document'].value, this.form.controls['password'].value,
-         this.form.controls['phone'].value).subscribe(resp => {this.authService.setToken(resp.token); this.router.navigate(['/home']); });
+         this.form.controls['phone'].value).subscribe(() => {
+          this.notification.showSuccess("Usuário Cadastrado com sucesso")
+          this.router.navigate(['/login']); });
 
-      console.log("Usuário cadastrado:", this.form.value);
     } else {
       this.error = "Preencha todos os campos corretamente!";
     }

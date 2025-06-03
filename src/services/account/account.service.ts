@@ -12,7 +12,7 @@ export class AccountService {
 
   registerAccount(idClient: string) {
     const url = `${this.apiUrl}/${parseInt(idClient)}/accounts`
-    return this.http.post<{}>(url, {idClient});
+    return this.http.post(url, {idClient}, { responseType: 'text' });
   }
 
   getAccounts(idClient: string) {
