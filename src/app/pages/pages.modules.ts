@@ -19,6 +19,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ExtractComponent } from './extract/extract.component';
 import { MatTableModule } from '@angular/material/table';
 import { WithdrawComponent } from './withdraw/withdraw.component';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 
 
 @NgModule({
@@ -35,7 +36,9 @@ import { WithdrawComponent } from './withdraw/withdraw.component';
   MatIconModule,
   ComponentsModule,
   MatSelectModule,
-  MatTableModule 
+  MatTableModule,
+  NgxMaskDirective,
+      NgxMaskPipe 
   ],
   providers: [],
   exports: [],

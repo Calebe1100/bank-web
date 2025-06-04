@@ -1,0 +1,52 @@
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 220px;
+}
+
+.mat-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content {
+  padding: 20px;
+}
+
+.title {
+  margin-left: 10px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.logo {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+  margin-right: 4PX;
+}
+
+.button-logout:hover {
+  background-color: rgba(0, 0, 0, 0.04); /* leve fundo ao passar o mouse */
+  transform: scale(1.05); /* efeito de aumento */
+}
+
+.spacer {
+  flex: 1;
+}
+
+.cliente {
+  font-size: 16px;
+  margin-right: 40px;
+}
+
+.nome {
+  color: #000000;
+}

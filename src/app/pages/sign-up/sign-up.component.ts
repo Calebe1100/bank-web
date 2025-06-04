@@ -46,6 +46,6 @@ export class SignUpComponent {
   }
 
   OnLogin(){
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 }

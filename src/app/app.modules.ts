@@ -13,10 +13,14 @@ import { JwtInterceptor } from './interceptors/interceptor';
 import { LoadingInterceptor } from './interceptors/interceptor.loading';
 import { LoadingComponent } from './components/loading/loading.component';
 import { ErrorInterceptor } from './interceptors/interceptor.error';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
-  declarations: [AppComponent, LoadingComponent],
+  declarations: [AppComponent, LoadingComponent, SidebarComponent],
   imports: [
     PagesModule,
     BrowserModule,
@@ -26,7 +30,14 @@ import { ErrorInterceptor } from './interceptors/interceptor.error';
     MatButtonModule,
     MatMenuModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [
     {
@@ -43,7 +54,8 @@ import { ErrorInterceptor } from './interceptors/interceptor.error';
     provide: HTTP_INTERCEPTORS,
     useClass: ErrorInterceptor,
     multi: true
-    }
+    },
+    provideNgxMask()
   ],
   exports: [PagesModule],
   bootstrap: [AppComponent]

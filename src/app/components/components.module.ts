@@ -14,6 +14,7 @@ import { DialogAddComponent } from './dialog-add/dialog-add.component';
 import { TransactionFormComponent } from './transaction-form/transaction-form.component';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 
 
 @NgModule({
@@ -32,6 +33,9 @@ import { MatSelectModule } from '@angular/material/select';
   MatDialogModule,
   MatOptionModule,
     MatSelectModule,
+      NgxMaskDirective,
+          NgxMaskPipe 
+    
   ],
   exports: [ListaDadosComponent, DialogAddComponent, TransactionFormComponent],
 })

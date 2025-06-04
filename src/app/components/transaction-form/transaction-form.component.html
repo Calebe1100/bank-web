@@ -12,7 +12,14 @@
 
   <mat-form-field appearance="outline" class="w-full">
     <mat-label>Valor</mat-label>
-    <input matInput type="number" formControlName="valor">
+    <input     
+      matInput
+      type="text"
+      formControlName="valor"
+      mask="separator.2"
+      thousandSeparator="."
+      decimalMarker=","
+      prefix="R$ ">
   </mat-form-field>
 
   <button mat-raised-button color="primary" type="submit">

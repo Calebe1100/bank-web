@@ -18,6 +18,10 @@ OnActionPage(route: string) {
 
   
   constructor (private readonly authService: AuthService, private readonly router: Router) {
+    if(this.authService.getToken() == '' || this.authService.getToken() == null){
+      this.router.navigate(['/login'])
+    }
+    
   }
 
 

@@ -1,0 +1,34 @@
+<mat-sidenav-container class="sidenav-container" *ngIf="showHeader">
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    [(opened)]="isExpanded"
+    class="sidenav"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home" routerLinkActive="active">🏠 Home</a>
+      <a mat-list-item routerLink="/account" routerLinkActive="active">💼 Contas</a>
+      <a mat-list-item routerLink="/withdraw" routerLinkActive="active">💰 Sacar</a>
+      <a mat-list-item routerLink="/deposit" routerLinkActive="active">🏦 Depositar</a>
+      <a mat-list-item routerLink="/extract" routerLinkActive="active">🗒️ Extrato</a>
+      <a mat-list-item (click)="OnLogout()">🚪 Sair</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="isExpanded = !isExpanded">
+        <mat-icon>menu</mat-icon>
+      </button>
+    <mat-icon (click)="OnActionPage('home')" class="logo">currency_exchange</mat-icon> OBANK
+    <span class="spacer"></span>
+    <span class="cliente">Cliente: <strong class="nome">{{ name ? name.toUpperCase() : "Pessoa" }}</strong></span>
+    </mat-toolbar>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<router-outlet *ngIf="!showHeader"></router-outlet>
