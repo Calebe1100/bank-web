@@ -7,6 +7,10 @@ import { Account } from '../../models/Account';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../../services/notification.service';
 
+export interface AccountFormatted extends Account{
+  valueFormatted: string;
+}
+
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -15,7 +19,7 @@ import { NotificationService } from '../../../services/notification.service';
 })
 export class AccountComponent implements OnInit{
   
-  contas: Account[] = [];
+  contas: AccountFormatted[] = [];
 
   constructor(private dialog: MatDialog, private readonly accountService: AccountService, private readonly authService: AuthService, private readonly router: Router, private notification: NotificationService) {
   }
@@ -31,11 +35,11 @@ export class AccountComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.accountService.getAccounts(this.authService.getIdClient() ?? "").subscribe(r => this.contas =  r.map<Account>( r => { return {id: r.id, idClient: r.idClient, number: r.number, value: r.value } }))
+    this.accountService.getAccounts(this.authService.getIdClient() ?? "").subscribe(r => this.contas =  r.map<AccountFormatted>( r => { return {id: r.id, idClient: r.idClient, number: r.number, value: r.value, valueFormatted: `RS ${r.value.toFixed(2).replace('.',',')}` } }))
   }
 
   headers = ['Número da conta', 'Saldo'];
-  fields = ['number', 'value'];
+  fields = ['number', 'valueFormatted'];
 
   createNewAccount() {
       const dialogRef = this.dialog.open(DialogAddComponent, {

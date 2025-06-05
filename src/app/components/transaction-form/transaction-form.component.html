@@ -5,7 +5,7 @@
     <mat-label>Conta</mat-label>
     <mat-select formControlName="conta">
       <mat-option *ngFor="let conta of contas" [value]="conta">
-        {{ conta.number }}
+        {{ `${conta.number} - RS ${conta.value.toFixed(2).replace('.',',')}` }}
       </mat-option>
     </mat-select>
   </mat-form-field>
