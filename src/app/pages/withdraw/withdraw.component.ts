@@ -46,11 +46,7 @@ export class WithdrawComponent implements OnInit {
 
   setWithDraw({ conta, valor }: { conta: Account; valor: number }) {
     this.transactionService
-      .registerWithDraw(
-        this.authService.getIdClient() ?? "",
-        conta.id,
-        valor * -1,
-      )
+      .registerWithDraw(this.authService.getIdClient() ?? "", conta.id, valor)
       .subscribe((resp) => {
         if (resp == "Saldo insulficiente.") {
           this.notificationService.showError(resp);
