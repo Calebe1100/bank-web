@@ -1,47 +1,64 @@
-<mat-card>
-    <mat-card-title>Cadastro de Usuário</mat-card-title>
-    <mat-card-content>
-        <form [formGroup]="form" (ngSubmit)="submit()">
-            <p>
-                <mat-form-field>
-                    <input type="text" matInput placeholder="Nome Completo" formControlName="fullName">
-                </mat-form-field>
-            </p>
+<mat-card class="signup-card">
+  <mat-card-title class="title">Cadastro de Usuário</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nome Completo</mat-label>
+        <input matInput type="text" formControlName="fullName" required />
+      </mat-form-field>
 
-            <p>
-                <mat-form-field>
-                    <input type="document" matInput placeholder="Cpf" formControlName="document" mask="000.000.000-00">
-                </mat-form-field>
-            </p>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>CPF</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="document"
+          mask="000.000.000-00"
+          required
+        />
+      </mat-form-field>
 
-            <p>
-                <mat-form-field>
-                    <input type="phone" matInput placeholder="Telefone" formControlName="phone" mask="(00) 0 0000-0000">
-                </mat-form-field>
-            </p>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Telefone</mat-label>
+        <input
+          matInput
+          type="tel"
+          formControlName="phone"
+          mask="(00) 0 0000-0000"
+          required
+        />
+      </mat-form-field>
 
-            <p>
-                <mat-form-field>
-                    <input type="password" matInput placeholder="Senha" formControlName="password">
-                </mat-form-field>
-            </p>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" formControlName="password" required />
+      </mat-form-field>
 
-            <p>
-                <mat-form-field>
-                    <input type="password" matInput placeholder="Confirmar Senha" formControlName="confirmPassword">
-                </mat-form-field>
-            </p>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Confirmar Senha</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="confirmPassword"
+          required
+        />
+      </mat-form-field>
 
-            <p *ngIf="error" class="error">
-                {{ error }}
-            </p>
+      <mat-error *ngIf="error" class="error">
+        {{ error }}
+      </mat-error>
 
-            <div class="button-container">
-                <button class="button" (click)="OnLogin()">Login</button>
-                <div class="button">
-                    <button type="submit" mat-button>Cadastrar</button>
-                </div>
-            </div>
-        </form>
-    </mat-card-content>
+      <div class="actions">
+        <button
+          mat-stroked-button
+          color="primary"
+          type="button"
+          (click)="OnLogin()"
+        >
+          Login
+        </button>
+        <button mat-flat-button color="primary" type="submit">Cadastrar</button>
+      </div>
+    </form>
+  </mat-card-content>
 </mat-card>

@@ -1,34 +1,62 @@
 :host {
-    display: flex;
-    justify-content: center;
-    margin: 100px 0px;
-  }
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+}
 
-  .mat-form-field {
-    width: 100%;
-    min-width: 300px;
-  }
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
 
-  mat-card-title,
-  mat-card-content {
-    display: flex;
-    justify-content: center;
-  }
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
 
-  .error {
-    padding: 8px;
-    width: 60%;
-    color: white;
-    background-color: rgb(235, 154, 154);
-  }
+.error {
+  padding: 8px;
+  width: 60%;
+  color: white;
+  background-color: rgb(235, 154, 154);
+}
 
-  .button {
-    display: flex;
-    justify-content: flex-end;
-  }
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
 
 .button-container {
+  display: flex;
+  gap: 10px; /* Adiciona um espaçamento entre os botões */
+  align-items: center; /* Alinha os itens verticalmente */
+}
+
+.login-card {
+  max-width: 400px;
+  margin: 64px auto;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+
+  .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #3f51b5; // Cor coerente com 'primary'
+  }
+
+  .full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .actions {
     display: flex;
-    gap: 10px; /* Adiciona um espaçamento entre os botões */
-    align-items: center; /* Alinha os itens verticalmente */
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 24px;
+  }
 }
