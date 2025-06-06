@@ -4,11 +4,14 @@
   <app-lista-dados
     [headers]="headers"
     [fields]="fields"
-    [data]="contas">
+    [data]="contas"
+    [onListChange]="listChange$"
+  >
   </app-lista-dados>
 
-
   <div class="actions">
-    <button mat-stroked-button color="primary" (click)="createNewAccount()">Criar nova conta</button>
+    <button mat-stroked-button color="primary" (click)="createNewAccount()">
+      Criar nova conta
+    </button>
   </div>
 </div>

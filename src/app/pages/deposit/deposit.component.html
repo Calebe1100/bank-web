@@ -1,6 +1,7 @@
-    <app-transaction-form
-      [title]="'Depósito'"
-      [buttonLabel]="'Confirmar'"
-      [contas]="accounts"
-      (onSubmit)="setDeposit($event)"
-    ></app-transaction-form>
+<app-transaction-form
+  [title]="'Depósito'"
+  [buttonLabel]="'Confirmar'"
+  [contas]="accounts"
+  (onSubmit)="setDeposit($event)"
+  [onListChange]="listChange$"
+></app-transaction-form>

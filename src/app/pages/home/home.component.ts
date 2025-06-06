@@ -26,6 +26,13 @@ export class HomeComponent {
     ) {
       this.router.navigate(["/login"]);
     }
+
+    if (
+      this.authService.getName() == "" ||
+      this.authService.getName() == null
+    ) {
+      setInterval(() => location.reload(), 1000);
+    }
   }
 
   actions = [

@@ -11,3 +11,29 @@
   width: 100%;
   margin-top: 24px;
 }
+
+.linha-negativa {
+  background-color: #ffe6e6 !important;
+  color: #a60000 !important;
+}
+
+.linha-positiva {
+  background-color: #e6ffe6 !important;
+  color: #006600 !important;
+}
+
+.extract-container {
+  .extract-table {
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .select-conta {
+    width: 300px;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+}

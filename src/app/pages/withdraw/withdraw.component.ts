@@ -3,6 +3,8 @@ import { AccountService } from "../../../services/account/account.service";
 import { AuthService } from "../../../services/auth.service";
 import { Account } from "../../models/Account";
 import { TransactionService } from "../../../services/transactions/transaction.service";
+import { NotificationService } from "../../../services/notification.service";
+import { BehaviorSubject, timeInterval, timeout } from "rxjs";
 
 @Component({
   selector: "app-withdraw",
@@ -13,13 +15,20 @@ import { TransactionService } from "../../../services/transactions/transaction.s
 export class WithdrawComponent implements OnInit {
   accounts: Account[] = [];
 
+  listChange$ = new BehaviorSubject<void>(undefined);
+
   constructor(
     private readonly accountService: AccountService,
     private readonly authService: AuthService,
     private readonly transactionService: TransactionService,
+    private readonly notificationService: NotificationService,
   ) {}
 
   ngOnInit(): void {
+    this.loadAccounts();
+  }
+
+  private loadAccounts() {
     this.accountService
       .getAccounts(this.authService.getIdClient() ?? "")
       .subscribe(
@@ -42,6 +51,13 @@ export class WithdrawComponent implements OnInit {
         conta.id,
         valor * -1,
       )
-      .subscribe(() => window.location.reload());
+      .subscribe((resp) => {
+        if (resp == "Saldo insulficiente.") {
+          this.notificationService.showError(resp);
+          return;
+        }
+        this.loadAccounts();
+        this.notificationService.showSuccess("Saque realizado com sucesso!");
+      });
   }
 }
