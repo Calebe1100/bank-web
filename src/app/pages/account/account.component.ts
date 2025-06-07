@@ -7,9 +7,11 @@ import { Account } from "../../models/Account";
 import { Router } from "@angular/router";
 import { NotificationService } from "../../../services/notification.service";
 import { BehaviorSubject } from "rxjs";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 export interface AccountFormatted extends Account {
   valueFormatted: string;
+  creditLimitFormatted: string;
 }
 
 @Component({
@@ -22,6 +24,7 @@ export class AccountComponent implements OnInit {
   listChange$ = new BehaviorSubject<void>(undefined);
 
   contas: AccountFormatted[] = [];
+  form: FormGroup;
 
   constructor(
     private dialog: MatDialog,
@@ -29,10 +32,32 @@ export class AccountComponent implements OnInit {
     private readonly authService: AuthService,
     private readonly router: Router,
     private notification: NotificationService,
-  ) {}
+    private fb: FormBuilder,
+  ) {
+    this.form = this.fb.group({
+      conta: [null, Validators.required],
+      valor: [null, [Validators.required, Validators.min(0.01)]],
+    });
+  }
 
   refreshList() {
     this.listChange$.next();
+  }
+
+  submit() {
+    if (this.form.valid) {
+      this.accountService
+        .updateAccount(
+          this.authService.getIdClient() ?? "",
+          this.form.controls["conta"].value.id,
+          this.form.controls["valor"].value,
+        )
+        .subscribe((resp) => {
+          this.loadAccounts();
+          this.refreshList();
+          this.notification.showSuccess(resp);
+        });
+    }
   }
 
   OnLogout() {
@@ -48,8 +73,8 @@ export class AccountComponent implements OnInit {
     this.loadAccounts();
   }
 
-  headers = ["Número da conta", "Saldo"];
-  fields = ["number", "valueFormatted"];
+  headers = ["Número da conta", "Saldo", "Limite de crédito"];
+  fields = ["number", "valueFormatted", "creditLimitFormatted"];
 
   private loadAccounts() {
     this.accountService
@@ -63,6 +88,10 @@ export class AccountComponent implements OnInit {
               number: r.number,
               value: r.value,
               valueFormatted: `RS ${r.value.toFixed(2).replace(".", ",")}`,
+              creditLimit: r.creditLimit,
+              creditLimitFormatted: `RS ${r.creditLimit
+                .toFixed(2)
+                .replace(".", ",")}`,
             };
           })),
       );

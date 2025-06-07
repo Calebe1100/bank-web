@@ -13,10 +13,41 @@ h2 {
   justify-content: flex-end;
 }
 
-.button-logo{
-   all: unset;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.button-logo {
+  all: unset;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  align-self: flex-end;
+}
+
+.container-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 16px;
+}
+
+.container-limit {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.confirmar-button {
+  margin-left: auto;
 }

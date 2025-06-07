@@ -14,4 +14,43 @@
       Criar nova conta
     </button>
   </div>
+
+  <h2>Conta</h2>
+  <div>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="container-limit">
+        <div class="container-buttons">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Conta</mat-label>
+            <mat-select formControlName="conta">
+              <mat-option *ngFor="let conta of contas" [value]="conta">
+                {{ `${conta.number} - RS ${conta.value.toFixed(2).replace('.',',')}` }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Valor</mat-label>
+            <input
+              matInput
+              type="text"
+              formControlName="valor"
+              mask="separator.2"
+              thousandSeparator="."
+              decimalMarker=","
+              prefix="R$ "
+            />
+          </mat-form-field>
+        </div>
+
+        <button
+          class="confirmar-button"
+          mat-raised-button
+          color="primary"
+          type="submit"
+        >
+          Confirmar
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

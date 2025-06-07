@@ -54,6 +54,7 @@ export class TransferComponent implements OnInit {
               idClient: r.idClient,
               number: r.number,
               value: r.value,
+              creditLimit: r.creditLimit,
             };
           })),
       );

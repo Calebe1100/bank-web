@@ -39,6 +39,7 @@ export class WithdrawComponent implements OnInit {
               idClient: r.idClient,
               number: r.number,
               value: r.value,
+              creditLimit: r.creditLimit,
             };
           })),
       );

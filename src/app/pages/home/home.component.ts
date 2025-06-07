@@ -39,6 +39,7 @@ export class HomeComponent {
     { label: "Contas", icon: "person_add", route: "account" },
     { label: "Saque", icon: "attach_money", route: "withdraw" },
     { label: "Depósito", icon: "account_balance", route: "deposit" },
+    { label: "Transferência", icon: "sync_alt", route: "transfer" },
     { label: "Extrato", icon: "receipt", route: "extract" },
     { label: "Sair", icon: "logout", route: "login" },
   ];
