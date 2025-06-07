@@ -1,7 +1,11 @@
 <div class="container">
-  <mat-card (click)="OnActionPage(action.route)" class="action-card" *ngFor="let action of actions">
-    <button  mat-button class="action-button">
-      <mat-icon >{{ action.icon }}</mat-icon>
+  <mat-card
+    (click)="OnActionPage(action.route)"
+    class="action-card"
+    *ngFor="let action of actions"
+  >
+    <button mat-button class="action-button">
+      <mat-icon>{{ action.icon }}</mat-icon>
       <span>{{ action.label }}</span>
     </button>
   </mat-card>

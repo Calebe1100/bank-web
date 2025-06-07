@@ -1,0 +1,39 @@
+<h2>Transferência</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="transfer-form">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Conta de Origem</mat-label>
+    <mat-select formControlName="conta">
+      <mat-option *ngFor="let conta of accounts" [value]="conta">
+        {{ `${conta.number} - R$ ${conta.value.toFixed(2).replace('.', ',')}` }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Conta Destino</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="contaDestino"
+      placeholder="Número da Conta"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Valor</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="valor"
+      mask="separator.2"
+      thousandSeparator="."
+      decimalMarker=","
+      prefix="R$ "
+    />
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-flat-button color="primary" type="submit">Confirmar</button>
+  </div>
+</form>
