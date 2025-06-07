@@ -13,7 +13,7 @@ export class TransferService {
     idClient: string,
     idAccount: string,
     targetClient: number,
-    targetAccount: string,
+    targetAccount: number,
     value: number,
   ) {
     const url = `${this.apiUrl}/${parseInt(
@@ -25,8 +25,4 @@ export class TransferService {
       { responseType: "text" },
     );
   }
-
-  //   getTransfers(idClient: string) {
-  //     return this.http.get<Transfer[]>(`${this.apiUrl}/${idClient}/accounts`);
-  //   }
 }

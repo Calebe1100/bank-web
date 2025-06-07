@@ -27,4 +27,8 @@ export class AccountService {
   getAccounts(idClient: string) {
     return this.http.get<Account[]>(`${this.apiUrl}/${idClient}/accounts`);
   }
+
+  getAllAccounts(idClient: string) {
+    return this.http.get<Account[]>(`${this.apiUrl}/${idClient}/accounts/all`);
+  }
 }

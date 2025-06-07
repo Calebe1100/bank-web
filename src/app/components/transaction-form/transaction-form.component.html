@@ -5,21 +5,22 @@
     <mat-label>Conta</mat-label>
     <mat-select formControlName="conta">
       <mat-option *ngFor="let conta of contas" [value]="conta">
-        {{ `${conta.number} - RS ${conta.value.toFixed(2).replace('.',',')}` }}
+        {{ `${conta.number} - RS ${(conta.value - conta.creditLimit).toFixed(2).replace('.',',')}` }}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="w-full">
     <mat-label>Valor</mat-label>
-    <input     
+    <input
       matInput
       type="text"
       formControlName="valor"
       mask="separator.2"
       thousandSeparator="."
       decimalMarker=","
-      prefix="R$ ">
+      prefix="R$ "
+    />
   </mat-form-field>
 
   <button mat-raised-button color="primary" type="submit">

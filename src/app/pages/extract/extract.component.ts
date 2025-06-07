@@ -14,6 +14,24 @@ import { Transaction } from "../../models/Transaction";
   standalone: false,
 })
 export class ExtractComponent implements OnInit {
+  getOperation(operation: number) {
+    if (operation == 0) {
+      return "Depósito";
+    }
+    if (operation == 1) {
+      return "Saque";
+    }
+    if (operation == 2) {
+      return "Transferência";
+    }
+    if (operation == 3) {
+      return "Bônus";
+    }
+    if (operation == 4) {
+      return "Taxa";
+    }
+    return "";
+  }
   constructor(
     private dialog: MatDialog,
     private readonly accountService: AccountService,

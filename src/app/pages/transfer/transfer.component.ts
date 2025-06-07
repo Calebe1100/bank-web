@@ -16,34 +16,53 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 })
 export class TransferComponent implements OnInit {
   accounts: Account[] = [];
+  allAccounts: Account[] = [];
   listChange$ = new BehaviorSubject<void>(undefined);
   form: FormGroup;
 
   constructor(
     private readonly accountService: AccountService,
-    private readonly authService: AuthService,
+    public readonly authService: AuthService,
     private readonly transferService: TransferService,
     private readonly notificationService: NotificationService,
     private fb: FormBuilder,
   ) {
     this.form = this.fb.group({
       conta: [null, Validators.required],
-      contaDestino: ["", [Validators.required, Validators.pattern(/^\d+$/)]],
+      contaDestino: [null, [Validators.required]],
       valor: [null, Validators.required],
     });
   }
 
   submit() {
     if (this.form.valid) {
-      this.setDeposit(this.form.value);
+      this.setTransfer(this.form.value);
     }
   }
 
   ngOnInit(): void {
-    this.loadDeposits();
+    this.loadTransfers();
+    this.loadAllAccounts();
   }
 
-  private loadDeposits() {
+  loadAllAccounts() {
+    this.accountService
+      .getAllAccounts(this.authService.getIdClient() ?? "")
+      .subscribe(
+        (r) =>
+          (this.allAccounts = r.map<Account>((r) => {
+            return {
+              id: r.id,
+              idClient: r.idClient,
+              number: r.number,
+              value: r.value,
+              creditLimit: r.creditLimit,
+            };
+          })),
+      );
+  }
+
+  private loadTransfers() {
     this.accountService
       .getAccounts(this.authService.getIdClient() ?? "")
       .subscribe(
@@ -60,18 +79,28 @@ export class TransferComponent implements OnInit {
       );
   }
 
-  setDeposit({ conta, valor }: { conta: Account; valor: number }) {
+  setTransfer({
+    conta,
+    contaDestino,
+    valor,
+  }: {
+    conta: Account;
+    contaDestino: Account;
+    valor: number;
+  }) {
     this.transferService
       .registerTransfer(
         this.authService.getIdClient() ?? "",
         conta.id.toString(),
+        contaDestino.idClient,
+        contaDestino.id,
         valor,
-        "1",
-        3,
       )
       .subscribe(() => {
-        this.loadDeposits();
-        this.notificationService.showSuccess("Deposito realizado com sucesso!");
+        this.loadTransfers();
+        this.notificationService.showSuccess(
+          "Transferencia realizado com sucesso!",
+        );
       });
   }
 }

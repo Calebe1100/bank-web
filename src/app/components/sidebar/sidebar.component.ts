@@ -42,7 +42,7 @@ export class SidebarComponent {
       .subscribe((r) => {
         this.totalSald = 0;
         r.forEach((r) => {
-          this.totalSald += r.value;
+          this.totalSald = this.totalSald + r.value - r.creditLimit;
         });
       });
   }
