@@ -29,6 +29,11 @@
       >
       OBANK
       <span class="spacer"></span>
+      <span
+        >Saldo total das contas:
+        {{ totalSald | currency: "BRL" : "symbol" : "1.2-2" : "pt-BR" }}</span
+      >
+      <span class="spacer"></span>
       <span class="cliente"
         >Olá,
         <strong class="nome">{{
