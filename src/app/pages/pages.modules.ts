@@ -21,6 +21,7 @@ import { MatTableModule } from "@angular/material/table";
 import { WithdrawComponent } from "./withdraw/withdraw.component";
 import { NgxMaskDirective, NgxMaskPipe } from "ngx-mask";
 import { TransferComponent } from "./transfer/transfer.component";
+import { ProfileComponent } from "./profile/profile.component";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { TransferComponent } from "./transfer/transfer.component";
     WithdrawComponent,
     ExtractComponent,
     TransferComponent,
+    ProfileComponent
   ],
   imports: [
     MatCardModule,

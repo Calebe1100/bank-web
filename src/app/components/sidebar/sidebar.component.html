@@ -30,9 +30,10 @@
       OBANK
       <span class="spacer"></span>
       <span
-        >Saldo total das contas:
+        >Saldo:
         {{ totalSald | currency: "BRL" : "symbol" : "1.2-2" : "pt-BR" }}</span
       >
+
       <span class="spacer"></span>
       <span class="cliente"
         >Olá,
@@ -40,7 +41,19 @@
           name ? name.toUpperCase() : "Pessoa"
         }}</strong></span
       >
+
+      <span class="spacer"></span>
+
+      <div class="tax-container">
+        <ng-container *ngFor="let taxa of taxas.slice(0, 3)">
+          <span class="taxa">
+            {{ taxa.nome.toUpperCase() }}:
+            <strong>{{ taxa.valor | number: "1.2-2" }}%</strong>
+          </span>
+        </ng-container>
+      </div>
     </mat-toolbar>
+
     <div class="content">
       <router-outlet></router-outlet>
     </div>

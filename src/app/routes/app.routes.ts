@@ -8,12 +8,14 @@ import { DepositComponent } from "../pages/deposit/deposit.component";
 import { ExtractComponent } from "../pages/extract/extract.component";
 import { WithdrawComponent } from "../pages/withdraw/withdraw.component";
 import { TransferComponent } from "../pages/transfer/transfer.component";
+import { ProfileComponent } from "../pages/profile/profile.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "sign-up", component: SignUpComponent },
   { path: "home", component: HomeComponent },
-  { path: "", component: HomeComponent },
+  { path: "profile", component: ProfileComponent },
+  { path: "", component: LoginComponent },
   { path: "account", component: AccountComponent },
   { path: "deposit", component: DepositComponent },
   { path: "withdraw", component: WithdrawComponent },

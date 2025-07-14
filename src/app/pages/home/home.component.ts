@@ -36,6 +36,7 @@ export class HomeComponent {
   }
 
   actions = [
+    { label: "Perfil", icon: "person", route: "profile" },
     { label: "Contas", icon: "person_add", route: "account" },
     { label: "Saque", icon: "attach_money", route: "withdraw" },
     { label: "Depósito", icon: "account_balance", route: "deposit" },

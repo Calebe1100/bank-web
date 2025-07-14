@@ -4,6 +4,7 @@ import { AuthService } from "../../../services/auth.service";
 import { filter } from "rxjs";
 import { AccountService } from "../../../services/account/account.service";
 import { Account } from "../../models/Account";
+import { EconomyService } from "../../../services/transactions/economyService";
 
 @Component({
   selector: "app-sidebar",
@@ -16,11 +17,13 @@ export class SidebarComponent {
   name = "";
   isExpanded = false;
   totalSald: number = 0;
+  taxas: any[] = [];
 
   constructor(
     private router: Router,
     private readonly authService: AuthService,
     private readonly accountService: AccountService,
+    private readonly economyService: EconomyService,
   ) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
@@ -32,8 +35,15 @@ export class SidebarComponent {
         );
       });
 
+    this.showHeader = false;
     this.name = this.authService.getName() ?? "";
     this.loadTotalSald();
+
+    this.economyService.getTaxas().subscribe((res) => {
+      this.taxas = res;
+
+      this.showHeader = true;
+    });
   }
 
   private loadTotalSald() {

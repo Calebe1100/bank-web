@@ -9,12 +9,14 @@ import {
 import { Router } from "@angular/router";
 import { catchError, Observable, throwError } from "rxjs";
 import { AuthService } from "../../services/auth.service";
+import { NotificationService } from "../../services/notification.service";
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
   constructor(
     private router: Router,
     private readonly authService: AuthService,
+    private notification: NotificationService,
   ) {}
 
   intercept(
@@ -36,8 +38,11 @@ export class JwtInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         // Verifica se o token expirou ou é inválido
         if (error.status === 401 || error.status === 403) {
-          localStorage.removeItem("token");
+          this.authService.clearLocalStorage();
           this.router.navigate(["/login"]);
+          const message =
+            error.message || error.error?.message || "Erro inesperado!";
+          this.notification.showError(message);
         }
 
         return throwError(() => error);

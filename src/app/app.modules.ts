@@ -16,7 +16,6 @@ import { AppComponent } from "./app.component";
 import { JwtInterceptor } from "./interceptors/interceptor";
 import { LoadingInterceptor } from "./interceptors/interceptor.loading";
 import { LoadingComponent } from "./components/loading/loading.component";
-import { ErrorInterceptor } from "./interceptors/interceptor.error";
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from "ngx-mask";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { MatSidenavModule } from "@angular/material/sidenav";
@@ -51,11 +50,6 @@ import { MatListModule } from "@angular/material/list";
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoadingInterceptor,
-      multi: true,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorInterceptor,
       multi: true,
     },
     { provide: LOCALE_ID, useValue: "pt-BR" },

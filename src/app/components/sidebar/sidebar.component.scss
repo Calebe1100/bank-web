@@ -46,3 +46,26 @@
   font-size: 16px;
   margin-right: 40px;
 }
+
+.taxa {
+  margin-left: 8px;
+  font-size: 10px;
+  color: #fff;
+}
+
+.tax-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font: menu;
+}
+
+@media (max-width: 480px) {
+  .tax-container {
+    display: none;
+  }
+
+  .cliente {
+    display: none;
+  }
+}

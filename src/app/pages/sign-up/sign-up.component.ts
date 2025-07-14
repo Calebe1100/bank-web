@@ -17,6 +17,7 @@ export class SignUpComponent {
   
   form: FormGroup = new FormGroup({
     fullName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    email: new FormControl('', [Validators.required, Validators.minLength(30)]),
     document: new FormControl('', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]),
     phone: new FormControl('', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
@@ -36,7 +37,7 @@ export class SignUpComponent {
       }
 
       this.clientService.registerClient(this.form.controls['fullName'].value, this.form.controls['document'].value, this.form.controls['password'].value,
-         this.form.controls['phone'].value).subscribe(() => {
+         this.form.controls['phone'].value, this.form.controls['email'].value).subscribe(() => {
           this.notification.showSuccess("Usuário Cadastrado com sucesso")
           this.router.navigate(['/login']); });
 
