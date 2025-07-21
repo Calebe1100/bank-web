@@ -3,5 +3,6 @@ export interface Account {
   idClient: number;
   number: string;
   value: number;
+  sald?: number;
   creditLimit: number;
 }

@@ -10,7 +10,7 @@ import { BehaviorSubject } from "rxjs";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 export interface AccountFormatted extends Account {
-  valueFormatted: string;
+  saldFormatted: string;
   creditLimitFormatted: string;
 }
 
@@ -36,7 +36,7 @@ export class AccountComponent implements OnInit {
   ) {
     this.form = this.fb.group({
       conta: [null, Validators.required],
-      valor: [null, [Validators.required, Validators.min(0.01)]],
+      valor: [null, [Validators.required, Validators.min(0.0)]],
     });
   }
 
@@ -74,7 +74,7 @@ export class AccountComponent implements OnInit {
   }
 
   headers = ["Número da conta", "Saldo", "Limite de crédito"];
-  fields = ["number", "valueFormatted", "creditLimitFormatted"];
+  fields = ["number", "saldFormatted", "creditLimitFormatted"];
 
   private loadAccounts() {
     this.accountService
@@ -87,7 +87,8 @@ export class AccountComponent implements OnInit {
               idClient: r.idClient,
               number: r.number,
               value: r.value,
-              valueFormatted: `RS ${r.value.toFixed(2).replace(".", ",")}`,
+              sald: r.sald,
+              saldFormatted: `RS ${r.sald?.toFixed(2).replace(".", ",")}`,
               creditLimit: r.creditLimit,
               creditLimitFormatted: `RS ${r.creditLimit
                 .toFixed(2)

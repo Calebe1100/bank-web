@@ -101,6 +101,7 @@ export class TransferComponent implements OnInit {
         this.notificationService.showSuccess(
           "Transferencia realizado com sucesso!",
         );
+        this.accountService.notifySaldoAtualizado();
       });
   }
 }

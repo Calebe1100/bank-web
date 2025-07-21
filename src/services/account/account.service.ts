@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Account } from "../../app/models/Account";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -9,6 +10,13 @@ export class AccountService {
   private apiUrl = "https://localhost:44360/api/clients";
 
   constructor(private http: HttpClient) {}
+
+  private saldoAtualizadoSource = new BehaviorSubject<void>(undefined);
+  saldoAtualizado$ = this.saldoAtualizadoSource.asObservable();
+
+  notifySaldoAtualizado() {
+    this.saldoAtualizadoSource.next();
+  }
 
   registerAccount(idClient: string) {
     const url = `${this.apiUrl}/${parseInt(idClient)}/accounts`;

@@ -35,14 +35,15 @@ export class SidebarComponent {
         );
       });
 
-    this.showHeader = false;
     this.name = this.authService.getName() ?? "";
     this.loadTotalSald();
 
     this.economyService.getTaxas().subscribe((res) => {
       this.taxas = res;
+    });
 
-      this.showHeader = true;
+    this.accountService.saldoAtualizado$.subscribe(() => {
+      this.loadTotalSald();
     });
   }
 

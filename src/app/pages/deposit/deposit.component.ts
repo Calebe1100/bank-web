@@ -50,6 +50,7 @@ export class DepositComponent implements OnInit {
       .subscribe(() => {
         this.loadDeposits();
         this.notificationService.showSuccess("Deposito realizado com sucesso!");
+        this.accountService.notifySaldoAtualizado();
       });
   }
 }

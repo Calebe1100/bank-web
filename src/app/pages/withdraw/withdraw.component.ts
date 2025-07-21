@@ -55,6 +55,7 @@ export class WithdrawComponent implements OnInit {
         }
         this.loadAccounts();
         this.notificationService.showSuccess("Saque realizado com sucesso!");
+        this.accountService.notifySaldoAtualizado();
       });
   }
 }
